@@ -9,8 +9,10 @@ Built this container:
 docker build --rm -t consul-template:latest ./
 ```
 
-Run this container and mount a local directory for templates:
+This docker image can be used like the `consul-template` binary itself. Any cli arguments can be added. Just make sure that you mount your local folder containing your templates as `/data` into this container like so:
 
 ```
-docker run -d -v /path/to/local/dir:/data consul-template:latest
+docker run -d -v /path/to/local/dir:/data consul-template:latest -consul 127.0.0.1:8500 -template "/tmp/template.ctmpl:/var/www/nginx.conf"
 ```
+
+If you need to interact with other services (e.g. restart after config change) you have to find a way to do this from inside the container. 
