@@ -1,10 +1,10 @@
-FROM alpine:3.4
+FROM alpine:3.5
 
 MAINTAINER Peter Teich <mail@pteich.xyz>
 
 ENV GOSU_VERSION 1.10
 ENV DUMB_INIT_VERSION 1.2.0
-ENV CONSUL_TEMPLATE_VERSION 0.18.0
+ENV CONSUL_TEMPLATE_VERSION 0.19.0
 
 RUN addgroup -S consul && adduser -S -G consul consul
 
